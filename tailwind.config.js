@@ -76,7 +76,8 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
-        // backgroundPositionSpin: "background-position-spin 3000ms infinite alternate",
+        backgroundPositionSpin: "background-position-spin 3000ms infinite alternate",
+        orbit: "orbit calc(var(--duration)*1s) linear infinite",
       },
       keyframes: {
         "border-beam": {
@@ -87,6 +88,16 @@ module.exports = {
         "background-position-spin": {
           "0%": { backgroundPosition: "top center" },
           "100%": { backgroundPosition: "bottom center" },
+        },
+        orbit: {
+          "0%": {
+            transform:
+              "rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)",
+          },
+          "100%": {
+            transform:
+              "rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)",
+          },
         },
       },
     },

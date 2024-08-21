@@ -12,6 +12,7 @@ const NeonGradientCard = ({
     firstColor: "#ff00aa",
     secondColor: "#00FFF1",
   },
+  childClassName,
   ...props
 }) => {
   const containerRef = useRef(null);
@@ -71,7 +72,8 @@ const NeonGradientCard = ({
           "after:h-[var(--pseudo-element-height)] after:w-[var(--pseudo-element-width)] after:rounded-[var(--border-radius)] after:blur-[var(--after-blur)] after:content-['']",
           "after:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] after:bg-[length:100%_200%] after:opacity-80",
           "after:animate-backgroundPositionSpin",
-          "dark:bg-neutral-900"
+          "dark:bg-neutral-900",
+          childClassName
         )}>
         {children}
       </div>

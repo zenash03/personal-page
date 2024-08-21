@@ -73,62 +73,78 @@ export const siteConfig = {
         }
     ],
     contents: {
-        home: {
+      about: {
+        name: "Wyrtzen Wensley",
+        description: "I'm a software engineer with a passion for crafting high-quality digital experiences that seamlessly blend functionality and design.",
+        roles: [
+          {
+              role: "UI/UX Designer",
+              description: "",
+          },
+          {
+              role: "Full-Stack Developer",
+              description: "",
+          }, 
+          {
+              role: "Mobile Developer",
+              description: "",
+          }
+        ],
+        contact: {
+          social: {
+              Github: {
+                  name: "Github",
+                  url: "https://github.com/zenash03/",
+                  icon: Icons.github,
+              },
+              LinkedIn: {
+                  name: "LinkedIn",
+                  url: "https://www.linkedin.com/in/wyrtzen-wensley-bba806213/",
+                  icon: Icons.linkedin
+              },
+              Discord: {
+                  name: "Discord",
+                  url: "https://discord.com/users/474955523196977162",
+                  icon: Icons.discord,
+              },
+              Instagram: {
+                  name: "Instagram",
+                  url: "https://www.instagram.com/wrtznn_/",
+                  icon: Icons.instagram,
+              },
+          }
+      },
+      },
             features: [
                 {
                     name: "",
                     description: "",
-                    className: "lg:row-start-1 lg:row-end-4 lg:col-start-1 lg:col-end-3 flex flex-col justify-center",
+                    className: "row-start-1 row-end-4 col-start-1 col-end-3 flex flex-col justify-center",
                     specialContent: < HeroTitle />,
-                    background: false
+                    variant: "ghost"
                 },
-                {
-                    name: "About 2",
-                    description: "Hekki Gaus",
-                    className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3",
-                    specialContent: "",
-                    background: true
-                },
-                {
-                    name: "About 3",
-                    description: "Hekki Gaus",
-                    className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-1",
-                    specialContent: "",
-                    background: true
-                },
-                {
-                  name: "About 3",
-                  description: "Hekki Gaus",
-                  className: "lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-1",
-                  specialContent: "",
-                  background: true
-              }
+              //   {
+              //       name: "Working Experience",
+              //       description: "",
+              //       className: "col-start-3 col-end-4 row-start-1 row-end-1",
+              //       specialContent: "",
+              //       background: true
+              //   },
+              //   {
+              //       name: "Education",
+              //       description: "",
+              //       className: "col-start-3 col-end-4 row-start-2 row-end-3",
+              //       specialContent: "",
+              //       background: true
+              //   },
+              //   {
+              //     name: "My Project",
+              //     description: "Hekki Gaus",
+              //     className: "lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-1",
+              //     specialContent: "",
+              //     background: true
+              // }
             ]
-        }
-    },
-    contact: {
-        social: {
-            Github: {
-                name: "Github",
-                url: "https://github.com/zenash03/",
-                icon: Icons.github,
-            },
-            LinkedIn: {
-                name: "LinkedIn",
-                url: "https://www.linkedin.com/in/wyrtzen-wensley-bba806213/",
-                icon: Icons.linkedin
-            },
-            Discord: {
-                name: "Discord",
-                url: "https://discord.com/users/474955523196977162",
-                icon: Icons.discord,
-            },
-            Instagram: {
-                name: "Instagram",
-                url: "https://www.instagram.com/wrtznn_/",
-                icon: Icons.instagram,
-            },
-        }
     },
     links: {
         github: "https://github.com/zenash03/",
@@ -136,18 +152,5 @@ export const siteConfig = {
         instagram: "https://www.instagram.com/wrtznn_/",
         linkedin: "https://www.linkedin.com/in/wyrtzen-wensley-bba806213/", 
     },
-    roles: [
-        {
-            role: "UI/UX Designer",
-            description: "",
-        },
-        {
-            role: "Full-Stack Developer",
-            description: "",
-        }, 
-        {
-            role: "Mobile Developer",
-            description: "",
-        }
-    ]
+    
 };

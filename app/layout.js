@@ -9,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`w-full lg:h-dvh  ${fontNunito.variable} font-nunito`}>
+      <body className={`w-full h-dvh  ${fontNunito.variable} font-nunito`}>
         {children}
       </body>
     </html>

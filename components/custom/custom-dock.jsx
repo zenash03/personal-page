@@ -15,17 +15,17 @@ import { BorderBeam } from "@/components/magicui/border-beam";
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { siteConfig } from "@/constants";
 
-const {navItems, contact} = siteConfig;
-
 export function CustomDock({
-  className
+  className,
+  navItems,
+  contact
 }) {
   return (
-    <div className={cn("flex h-[12.5em] w-full flex-col items-center justify-center overflow-hidden absolute bottom-2",
+    <div className={cn("flex h-[8em] w-full flex-col items-center justify-center overflow-hidden absolute bottom-0",
       className
     )}>
       <TooltipProvider>
-        <Dock direction="middle" className="">
+        <Dock direction="middle" className="mt-0 mx-0 pointer-events-auto bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-700">
           {navItems.map((item) => (
             <DockIcon key={item.label}>
               <Tooltip>
@@ -70,8 +70,8 @@ export function CustomDock({
           ))}
             <BorderBeam 
                 size={100}
-                duration={12}
-                delay={0}
+                duration={10}
+                delay={10}
                 colorFrom="#c084fc"
                 colorTo="#3556c6"
                 />

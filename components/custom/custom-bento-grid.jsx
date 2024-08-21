@@ -1,4 +1,20 @@
 import { cn } from '@/lib/utils'
+import { cva } from 'class-variance-authority';
+
+const bentoCardVariants = cva(
+  "group col-span-3 relative flex flex-col justify-between overflow-hidden rounded-xl",
+  {
+    variants: {
+      variant: {
+        default: "bg-stone-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100",
+        ghost: "",
+      }
+    },
+    defaultVariants: {
+      variant: "default"
+    }
+  }
+)
 
 const CustomBentoGrid = ({
     children,
@@ -6,7 +22,7 @@ const CustomBentoGrid = ({
   }) => {
     return (
       (<div className={cn(
-        "grid w-full h-full lg:auto-rows-[22vh] grid-cols-3 gap-4"
+        "grid w-full auto-rows-[22rem] grid-cols-3 gap-4"
         , className)}>
         {children}
       </div>)
@@ -19,14 +35,14 @@ const CustomBentoCard = ({
     description,
     className,
     specialContent,
-    background
-}) => (
-    <div 
+    background,
+    variant = "default"
+}) => {
+  return (
+    (<div 
     key={name}
-    className={cn(
-        "group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl",
-        `${background ? "bg-stone-500 bg-clip-padding backdrop-filter  backdrop-blur-sm bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100" : "" }`,
-        className
+    className={cn(bentoCardVariants({variant}),
+    className
     )}>
         <div
         className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6">
@@ -44,7 +60,8 @@ const CustomBentoCard = ({
             className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
         )}
         
-    </div>
-)
+    </div>)
+  )
+}
 
   export {CustomBentoCard, CustomBentoGrid };
