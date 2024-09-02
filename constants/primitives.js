@@ -42,7 +42,7 @@ export const title = tv({
   });
   
   export const subtitle = tv({
-    base: "my-2 text-lg lg:text-xl text-default-600 ",
+    base: "my-2 text-lg lg:text-xl text-default-600",
     variants: {
       fullWidth: {
         true: "!w-full",
@@ -52,4 +52,18 @@ export const title = tv({
       fullWidth: true,
     },
   });
+
+  export const glassBackground = tv({
+    base: "bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-700",
+    variants: {
+      opacity: {
+        10: "bg-opacity-10",
+        30: "bg-opacity-30",
+        50: "bg-opacity-50"
+      },
+    },
+    defaultVariants: {
+      opacity: 10
+    }
+  })
   

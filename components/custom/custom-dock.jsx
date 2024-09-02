@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { BookIcon, CalendarIcon, HomeIcon, MailIcon, PencilIcon, UserRoundIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -14,6 +13,8 @@ import {
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { siteConfig } from "@/constants";
+import { glassBackground } from "@/constants/primitives";
+import { ScrollToSection } from "../ScrollToSection";
 
 export function CustomDock({
   className,
@@ -25,20 +26,29 @@ export function CustomDock({
       className
     )}>
       <TooltipProvider>
-        <Dock direction="middle" className="mt-0 mx-0 pointer-events-auto bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-700">
+        <Dock direction="middle" className={cn(glassBackground(), `mt-0 mx-0 pointer-events-auto`)}>
           {navItems.map((item) => (
             <DockIcon key={item.label}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link
+                  <ScrollToSection
+                    className={cn(
+                      buttonVariants({ variant: "ghost", size: "icon" }),
+                      "size-12 rounded-full",
+                    )}
                     href={item.href}
+                  >
+                    <item.icon className="size-4" />
+                  </ScrollToSection>
+                  {/* <button
+                    onClick={() => scrollToSection(item.href)}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
                       "size-12 rounded-full",
                     )}
                   >
                     <item.icon className="size-4" />
-                  </Link>
+                  </button> */}
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>{item.label}</p>

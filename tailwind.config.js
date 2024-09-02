@@ -3,7 +3,7 @@ module.exports = {
   darkMode: ["class"],
   content: [
     './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
+    './components/**/*.{js,jsx, tsx}',
     './app/**/*.{js,jsx}',
     './src/**/*.{js,jsx}',
   ],
@@ -62,6 +62,18 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        backgroundPositionSpin: "background-position-spin 3000ms infinite alternate",
+        orbit: "orbit calc(var(--duration)*1s) linear infinite",
+        first: "moveVertical 30s ease infinite",
+        second: "moveInCircle 20s reverse infinite",
+        third: "moveInCircle 40s linear infinite",
+        fourth: "moveHorizontal 40s ease infinite",
+        fifth: "moveInCircle 20s ease infinite",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -71,15 +83,6 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
-        backgroundPositionSpin: "background-position-spin 3000ms infinite alternate",
-        orbit: "orbit calc(var(--duration)*1s) linear infinite",
-      },
-      keyframes: {
         "border-beam": {
           "100%": {
             "offset-distance": "100%",
@@ -97,6 +100,39 @@ module.exports = {
           "100%": {
             transform:
               "rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)",
+          },
+        },
+        moveHorizontal: {
+          "0%": {
+            transform: "translateX(-50%) translateY(-10%)",
+          },
+          "50%": {
+            transform: "translateX(50%) translateY(10%)",
+          },
+          "100%": {
+            transform: "translateX(-50%) translateY(-10%)",
+          },
+        },
+        moveInCircle: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "50%": {
+            transform: "rotate(180deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
+        moveVertical: {
+          "0%": {
+            transform: "translateY(-50%)",
+          },
+          "50%": {
+            transform: "translateY(50%)",
+          },
+          "100%": {
+            transform: "translateY(-50%)",
           },
         },
       },

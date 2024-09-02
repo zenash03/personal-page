@@ -50,7 +50,7 @@ export default function CustomTypingEffect({
   }, [isTyping, currentText, duration, text]);
 
   return (
-    <div className={cn("tracking-[-0.02em] drop-shadow-sm", className)}>
+    <div className={cn("tracking-[-0.02em] drop-shadow-sm text-gray-400", className)}>
       {title} <span className={effectClassName}> {displayedText} </span>
     </div>
   );
