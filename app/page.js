@@ -1,4 +1,5 @@
 // import Hero from '@/components/hero'
+import React from 'react';
 import { siteConfig } from '@/constants';
 import PortfolioSection from '@/components/PortfolioSection';
 import EducationSection from '@/components/EducationSection';
@@ -35,9 +36,9 @@ const page = () => {
             ))}
         </div> */}
       </div>
-      <HeroSection about={about} id="home" />
+      <HeroSection data={about} id="home" />
       <EducationSection data={education} id="education" />
-      <PortfolioSection projects={projects} id="portfolio"/>
+      <PortfolioSection data={projects} id="portfolio"/>
       <ContactSection id="contact"/>
       <div className="h-64">
       </div>

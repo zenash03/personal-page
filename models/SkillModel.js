@@ -24,7 +24,7 @@ const skillSchema = new mongoose.Schema({
     skillList: [skillListSchema]
 })
 
-const modelName = "Skill";
-const SkillModel = mongoose.models.modelName || mongoose.model(modelName, skillSchema);
+const modelName = "skills";
+const SkillModel = mongoose.models[modelName] || mongoose.model(modelName, skillSchema);
 
 export default SkillModel;

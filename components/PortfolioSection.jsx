@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 export default function PortfolioSection({
-    projects,
+    data,
     id
 }) {
     const containerVariants = {
@@ -115,7 +115,7 @@ export default function PortfolioSection({
                 </div>
                 <div className="col-span-3 flex flex-col md:gap-y-12 gap-y-4">
                     {
-                        projects.map((item, index) => (
+                        data.map((item, index) => (
                             // <motion.div
                             // variants={itemVariants}
                             // >

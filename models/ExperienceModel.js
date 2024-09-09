@@ -24,7 +24,7 @@ const experienceSchema = new mongoose.Schema({
     }
 })
 
-const modelName = "Experience";
-const ExperienceModel = mongoose.models.modelName || mongoose.model(modelName, experienceSchema);
+const modelName = "experiences";
+const ExperienceModel = mongoose.models[modelName] || mongoose.model(modelName, experienceSchema);
 
 export default ExperienceModel;

@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 
 
 export default function HeroSection({
-    about,
+    data,
     id
 }) {
   return (
@@ -16,13 +16,13 @@ export default function HeroSection({
                 <NeonGradientCard className="group w-fit items-center justify-center text-center p-0" borderRadius={1000} childClassName="p-0"> 
                     <Avatar className="size-64">
                         <AvatarImage src="https://avatars.githubusercontent.com/u/53303490?v=4" />
-                        <AvatarFallback>CN</AvatarFallback>
+                        <AvatarFallback>WW</AvatarFallback>
                     </Avatar>
                 <div
                     className="pointer-events-none absolute inset-0 transform-gpu rounded-full transition-all duration-300 group-hover:bg-white/[.03] group-hover:dark:bg-neutral-400/10" />
                 </NeonGradientCard>
             </div>
-           <HeroTitle about={about} className="my-8 mb-16 md:mb-0 md:my-0"/>
+           <HeroTitle about={data} className="my-8 mb-16 md:mb-0 md:my-0"/>
         </div>
     </div>
   )
