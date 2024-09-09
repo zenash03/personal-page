@@ -42,7 +42,7 @@ export const title = tv({
   });
   
   export const subtitle = tv({
-    base: "my-2 text-lg lg:text-xl text-default-600",
+    base: "my-2 text-base md:text-xl text-default-600",
     variants: {
       fullWidth: {
         true: "!w-full",

@@ -21,7 +21,7 @@ export default function Section({
                     duration: 1.5,
                     ease: "easeInOut",
                     }}
-                    className="mt-8 bg-gradient-to-br from-slate-100 to-slate-300 py-4 bg-clip-text text-left text-4xl font-extrabold tracking-tight text-transparent md:text-5xl mb-10"
+                    className="mt-4 md:mt-8 bg-gradient-to-br from-slate-100 to-slate-300 py-4 bg-clip-text text-left text-4xl font-extrabold tracking-tight text-transparent md:text-5xl mb-0 md:mb-10"
                 >
                     {title}
                 </motion.h1>

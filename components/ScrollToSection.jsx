@@ -9,7 +9,6 @@ export function ScrollToSection({
     const lenis = useLenis();
     
     const handleScroll = (sectionId) => {
-        console.log(sectionId)
         const targetElement = document.getElementById(sectionId);
         if (targetElement && lenis) {
           lenis.scrollTo(targetElement);

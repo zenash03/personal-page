@@ -56,9 +56,9 @@ export function CustomDock({
               </Tooltip>
             </DockIcon>
           ))}
-          <Separator orientation="vertical" className="h-full" />
+          <Separator orientation="vertical" className="h-full hidden md:flex" />
           {Object.entries(contact.social).map(([name, social]) => (
-            <DockIcon key={name}>
+            <DockIcon key={name} className="hidden md:flex">
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link

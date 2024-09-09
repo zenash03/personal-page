@@ -23,13 +23,14 @@ export default function EducationSection({
       setActiveEducation(education)
     }
     useEffect(() => {
-      console.log(activeEducation);
     }, [activeEducation]);
 
     return (
-    <Section sectionClassName="min-h-screen mt-16 py-16" title="My Education" id={id}>
-        <div className="grid grid-cols-2 gap-10">
-            <EducationTab>
+    <Section sectionClassName="min-h-screen md:mt-16 py-8 md:py-16 w-full" title="My Education" id={id}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <EducationTab
+            className="col-span-1"
+            >
                 {
                     education && 
                     education.map((item, index) => {
@@ -61,6 +62,7 @@ export default function EducationSection({
                     duration: 0.8,
                     ease: "easeInOut",
                     }}
+                className="col-span-1"
                 >
                 <EducationDetailCard data={activeEducation}/>
             </motion.div>

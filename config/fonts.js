@@ -1,3 +1,5 @@
+// import { Nunito as NunitoFont, Fira_Code as FiraCodeFont, Inter as SansFont } from "next/font/google";
+
 import { Nunito as NunitoFont, Fira_Code as FiraCodeFont, Inter as SansFont } from "next/font/google";
 
 export const fontNunito = NunitoFont({
@@ -9,6 +11,7 @@ export const fontNunito = NunitoFont({
 export const fontSans = SansFont({
     subsets: ["latin"],
     variable: "--font-sans",
+    weight: ['400', '500', '600', '700']
 })
 
 export const fontFiraCode = FiraCodeFont({

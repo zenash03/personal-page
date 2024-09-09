@@ -1,7 +1,7 @@
 import HeroTitle from "@/components/heroTitle";
 import Icons from "@/config/icons";
 // import Icons from "@/config/icons";
-import { BookIcon, GraduationCapIcon, HomeIcon, UserRoundIcon } from "lucide-react";
+import { BookIcon, GraduationCapIcon, HomeIcon, MailIcon, UserRoundIcon } from "lucide-react";
 
 
 export const siteConfig = {
@@ -20,6 +20,11 @@ export const siteConfig = {
             label: "Portfolio",
             href: "portfolio",
             icon: BookIcon
+        },
+        {
+            label: "Contact",
+            href: "contact",
+            icon: MailIcon
         },
     ],
     contents: {
@@ -154,7 +159,7 @@ export const siteConfig = {
                 id: 1,
                 degree: "High School",
                 institution: "SMK Immanuel 1 Pontianak",
-                startDate: "August 2021",
+                startDate: "Aug 2021",
                 endDate: "June 2021", 
                 description: "Graduated with honors, participated in the Computer Science Club.",
                 achievements: [
@@ -174,7 +179,7 @@ export const siteConfig = {
                 id: 2,
                 degree: "Bachelor of Information Systems",
                 institution: "Bina Nusantara University",
-                startDate: "September 2021",
+                startDate: "Sept 2021",
                 endDate: "Present",
                 description: "Focused on full-stack development and AI-enhanced education.",
                 achievements: [

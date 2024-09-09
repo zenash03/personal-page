@@ -3,6 +3,7 @@ import { siteConfig } from '@/constants';
 import PortfolioSection from '@/components/PortfolioSection';
 import EducationSection from '@/components/EducationSection';
 import HeroSection from '@/components/HeroSection';
+import ContactSection from '@/components/ContactSection';
 
 const page = () => {
 
@@ -37,6 +38,7 @@ const page = () => {
       <HeroSection about={about} id="home" />
       <EducationSection data={education} id="education" />
       <PortfolioSection projects={projects} id="portfolio"/>
+      <ContactSection id="contact"/>
       <div className="h-64">
       </div>
     </div>
