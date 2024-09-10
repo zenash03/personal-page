@@ -5,18 +5,18 @@ import { EducationCard, EducationDetailCard, EducationTab } from './Education';
 import { motion } from 'framer-motion';
 
 export default function EducationSection({
-    data,
+    educations,
     id
 }) {
+
     const [education, setEducation] = useState(null)
     const [activeEducation, setActiveEducation] = useState(null)
   
   
     useEffect(() => {
-      const reversedData = [...data].reverse()
-      setEducation(reversedData)
-  
-      setActiveEducation(reversedData[0]);
+        const reversedData = [...educations.data].reverse()
+        setEducation(reversedData)
+        setActiveEducation(reversedData[0]);
     }, [])
   
     const handleClickEducation = (education) => {
@@ -46,7 +46,7 @@ export default function EducationSection({
                                 }}
                             className="relative z-0"
                             >
-                            <EducationCard data={item} cta={handleClickEducation} activeId={activeEducation.id} />
+                            <EducationCard data={item} cta={handleClickEducation} activeId={activeEducation._id} />
                             </motion.div>
                         )
                     })

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 export default function PortfolioSection({
-    data,
+    projects,
     id
 }) {
     const containerVariants = {
@@ -68,14 +68,11 @@ export default function PortfolioSection({
             <motion.div
             initial="hidden"
             whileInView="visible"
-            // animate="visible"
             variants={containerVariants}
             className="grid grid-cols-3 md:grid-cols-5 gap-6">
                 <div className="col-span-3 md:col-span-2">
                     <div className="sticky top-40 translate-y-0 flex flex-col">
                         <motion.p 
-                        // initial={{ opacity: 0, x: -30 }}
-                        // whileInView={{ opacity: 1, x: 0 }}
                         variants={itemVariantsX}
                         className="text-base md:text-lg font-bold text-gray-400"
                         >
@@ -87,12 +84,6 @@ export default function PortfolioSection({
                                 category.map((item, index) => (
                                     <motion.div 
                                     key={index}
-                                    // initial={{ opacity: 0, y: 30 }}
-                                    // whileInView={{ opacity: 1, y: 0 }}
-                                    // transition={{
-                                    // duration: 1,
-                                    // ease: "easeInOut",
-                                    // }} 
                                     variants={itemVariantsY}
                                     className="flex items-center gap-4 md:gap-6 group">
                                         <div 
@@ -115,22 +106,22 @@ export default function PortfolioSection({
                 </div>
                 <div className="col-span-3 flex flex-col md:gap-y-12 gap-y-4">
                     {
-                        data.map((item, index) => (
+                        projects.data.map((item, index) => (
                             // <motion.div
                             // variants={itemVariants}
                             // >
                                 <PortfolioCard
-                                    key={item.id}
-                                    title={item.title} 
+                                    key={item._id}
+                                    title={item.name} 
                                     role={item.role}
                                     category={item.category}
                                     description={item.description}
-                                    imageUrl={item.imageUrl}
-                                    startDate={item.startDate}
-                                    endDate={item.endDate}
-                                    year={item.year}
-                                    publicationLink={item.publicationLink}
-                                    technologyUsed={item.technologyUsed}
+                                    imageUrl={item.images}
+                                    duration={item.duration}
+                                    // endDate={item.endDate}
+                                    // year={item.year}
+                                    link={item.link}
+                                    techStack={item.techStack}
                                     delay={1.2}
                                     xVariant={itemVariantsX} 
                                     yVariant={itemVariantsY}

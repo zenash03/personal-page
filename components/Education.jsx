@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import {
     Card,
@@ -29,8 +29,8 @@ function EducationTab({
 
 function EducationCard({data, cta, activeId}) {
     return (
-        <div key={data.id} onClick={() => cta(data)} className={`hover:scale-100 transition-all duration-300 p-3 md:p-4 flex items-center gap-4 bg-stone-700 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100 rounded-lg origin-top-left ${(activeId == data.id) ? 'scale-100' : 'scale-95'} group pl-6 relative`}>
-            <div className={`${(activeId == data.id) ? 'opacity-100' : 'opacity-40'} group-hover:opacity-100 transition-all duration-300`}>
+        <div key={data._id} onClick={() => cta(data)} className={`hover:scale-100 transition-all duration-300 p-3 md:p-4 flex items-center gap-4 bg-stone-700 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100 rounded-lg origin-top-left ${(activeId == data._id) ? 'scale-100' : 'scale-95'} group pl-6 relative`}>
+            <div className={`${(activeId == data._id) ? 'opacity-100' : 'opacity-40'} group-hover:opacity-100 transition-all duration-300`}>
                 <Avatar>
                     <AvatarImage src={data.logoLink} alt="@shadcn" />
                     <AvatarFallback>AP</AvatarFallback>
@@ -38,24 +38,38 @@ function EducationCard({data, cta, activeId}) {
             </div>
             <div className="w-full">
                 <div className="flex justify-between gap-8 md:gap-4">
-                    <p className={`${(activeId == data.id) ? 'text-white' : 'text-gray-500' } group-hover:text-white transition-all duration-400 font-extrabold text-sm md:text-lg`}>{data.degree}</p>
-                    <p className={`${(activeId == data.id) ? 'text-gray-400' : 'text-gray-600'} group-hover:text-gray-400 transition-all duration-400 text-xs md:text-base font-semibold`}>
+                    <p className={`${(activeId == data._id) ? 'text-white' : 'text-gray-500' } group-hover:text-white transition-all duration-400 font-extrabold text-sm md:text-lg`}>{data.degree}</p>
+                    <p className={`${(activeId == data._id) ? 'text-gray-400' : 'text-gray-600'} group-hover:text-gray-400 transition-all duration-400 text-xs md:text-base font-semibold`}>
                         {data.startDate} - {data.endDate}
                     </p>
                 </div>
-                <p className={`${(activeId == data.id) ? 'text-gray-400' : 'text-gray-600'} group-hover:text-gray-400 transition-all duration-400 font-bold text-sm md:text-lg`}>{data.institution}</p>
+                <p className={`${(activeId == data._id) ? 'text-gray-400' : 'text-gray-600'} group-hover:text-gray-400 transition-all duration-400 font-bold text-sm md:text-lg`}>{data.institutionName}</p>
             </div>
             <div className="absolute w-1.5 h-full top-0 left-0 z-10 flex justify-center items-center">
-                <div className={cn(`w-full h-3/4 rounded-r-md z-10 ${(activeId == data.id) ? 'opacity-100' : 'opacity-0'} duration-400 transition-all group-hover:opacity-100`, `${colorClasses[data.colorTheme]}`)}></div>
+                <div className={cn(`w-full h-3/4 rounded-r-md z-10 ${(activeId == data._id) ? 'opacity-100' : 'opacity-0'} duration-400 transition-all group-hover:opacity-100`, `${colorClasses[data.colorTheme]}`)}></div>
             </div>
         </div>
     )
 }
 
 function EducationDetailCard({data}) {
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        if(data.relatedExperience && data.relatedExperience.length > 0){
+            const uniqueCategories = [...new Set(data.relatedExperience.map(item => item.category))];
+            setCategories(uniqueCategories);
+        }
+    }, [data.relatedExperience])
+    
+    const filterByCategory = (relatedExperience, category) => {
+        return relatedExperience.filter(
+            (experience) => experience.category == category
+        );
+    }
     return (
         <motion.div
-            key={data.id}
+            key={data._id}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeInOut" }}
@@ -64,7 +78,7 @@ function EducationDetailCard({data}) {
             <Card className="border-none bg-stone-700 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100 rounded-lg pl-2.5">
                 <CardHeader>
                     <CardTitle className="text-xl leading-5 md:text-2xl md:leading-6 font-bold">{data.degree}</CardTitle>
-                    <CardDescription className="font-bold text-base md:text-lg">{data.institution}</CardDescription>
+                    <CardDescription className="font-bold text-base md:text-lg">{data.institutionName}</CardDescription>
                 </CardHeader>
                 <CardContent>
                     {
@@ -72,38 +86,35 @@ function EducationDetailCard({data}) {
                             <p className="text-base md:text-lg font-semibold text-gray-300">{data.description}</p>
                         )
                     }
+
                     {
-                        data.achievements && <OptionalContent data={data.achievements} title="achievements" colorTheme={data.colorTheme}/>
+                        categories.length > 0 ? (
+                            categories.map((category) => (
+                                <div className="my-4" key={category}>
+                                    <p className="text-lg md:text-xl font-bold mb-1 capitalize">{category}</p> 
+                                    {
+                                        filterByCategory(data.relatedExperience, category).map((experience) => (
+                                            <div key={experience} className="flex items-start gap-x-2.5 mb-2.5">
+                                                <div class="w-2 h-7 flex items-center">
+                                                    <span className={`flex h-1.5 w-1.5 aspect-square rounded-full bg-blue-500`} />
+                                                </div>
+                                                <p className="text-base md:text-lg font-bold text-gray-400">{experience.shortDescription}</p>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            ))
+                        ) : (
+                            <p className="text-base md:text-lg text-gray-500  my-4">No related experiences available.</p>
+                        )
                     }
-                    {
-                        data.experiences && <OptionalContent data={data.experiences} title="experiences" colorTheme={data.colorTheme} />
-                    }
-                    {
-                        data.communityServices && <OptionalContent data={data.communityServices} title="community services" colorTheme={data.colorTheme}/>
-                    }
+                    
                 </CardContent>
             </Card>
             <div className="absolute w-2 h-full top-0 left-0 z-10 flex justify-center items-center">
                 <div className={`w-full h-2/3 rounded-r-md z-10 bg-${data.colorTheme}-700`}></div>
             </div>
         </motion.div>
-    )
-}
-
-function OptionalContent({data, title, colorTheme}) {
-    if(data.length <= 0) return <></>
-    return (
-        <div className="my-4">
-            <p className="text-lg md:text-xl font-bold mb-1 capitalize">{title}</p> 
-            {
-                data.map((item, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                        <span className={`flex h-1.5 w-1.5 rounded-full ${colorClasses[colorTheme]}`} />
-                        <p className="text-base md:text-lg font-bold text-gray-400">{item}</p>
-                    </div>
-                ))
-            }
-        </div>
     )
 }
 

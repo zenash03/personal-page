@@ -19,7 +19,7 @@ const educationSchema = new mongoose.Schema({
     },
     expectedDate: {
         type: String,
-        required: true
+        required: false
     },
     fieldOfStudy: {
         type: String,
@@ -30,11 +30,16 @@ const educationSchema = new mongoose.Schema({
         required: true
     },
     relatedExperience: {
-        type: [Object]
+        type: [
+            {
+                type: mongoose.Schema.Types.ObjectId, 
+                ref: 'Experience'
+            }
+        ]
     }
 })
 
-const modelName = "educations";
-const EducationModel = mongoose.models[modelname] || mongoose.model(modelName, educationSchema);
+const modelName = "Education";
+const EducationModel = mongoose.models[modelName] || mongoose.model(modelName, educationSchema);
 
 export default EducationModel;

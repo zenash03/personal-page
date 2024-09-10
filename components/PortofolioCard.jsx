@@ -3,38 +3,6 @@ import { motion } from "framer-motion";
 import { ArrowUpRightIcon } from "lucide-react";
 import TechnologyBadge from "./ui/badge";
 import Link from "next/link";
-
-// export const PortfolioCard = ({ project, index }) => {
-//     const isOdd = index % 2 !== 0;
-  
-//     return (
-//       <div className="flex flex-col md:flex-row justify-between gap-8">
-//         <motion.div
-//           initial={{ opacity: 0, x: isOdd ? 30 : -30 }}
-//           whileInView={{ opacity: 1, x: 0 }}
-//           transition={{ duration: 1, ease: "easeInOut" }}
-//           className={`bg-stone-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100 rounded-lg flex-1 p-6 h-fit ${isOdd ? "order-last md:order-first" : "order-first md:order-last"}`}
-//         >
-//             <div className="flex">
-//                 <h2 className="font-nunito text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent">{project.title}</h2>
-//             </div>
-//           <p className="text-lg mt-4 text-white">{project.description}</p>
-//         </motion.div>
-//         <motion.div
-//           initial={{ opacity: 0, x: isOdd ? -30 : 30 }}
-//           whileInView={{ opacity: 1, x: 0 }}
-//           transition={{ duration: 1, ease: "easeInOut" }}
-//           className={`flex-1 ${isOdd ? "order-first md:order-last" : "order-last md:order-first"}`}
-//         >
-//           <img
-//             src={project.imageUrl}
-//             alt={project.title}
-//             className="object-cover w-full h-96 rounded-lg min-h-80"
-//           />
-//         </motion.div>
-//       </div>
-//     );
-//   };
   
 
 export default function PortfolioCard({
@@ -43,15 +11,13 @@ export default function PortfolioCard({
     category,
     description,
     imageUrl,
-    startDate,
-    endDate,
-    year,
-    publicationLink,
-    technologyUsed,
+    duration,
+    link,
+    techStack,
     xVariant,
     yVariant
 }) {
-    const projectDate = `${startDate} ${(endDate != "") ? `- ${endDate}` : ''} ${year}`
+    // const projectDate = `${startDate} ${(endDate != "") ? `- ${endDate}` : ''} ${year}`
     return (
         <div
         className="w-full grid md:grid-cols-3 gap-x-2 lg:gap-2">
@@ -59,7 +25,7 @@ export default function PortfolioCard({
             variants={yVariant} 
             className="col-span-3 md:col-span-1">
                 <p className="uppercase font-bold text-gray-500 text-xs md:text-xl mb-1">
-                    {projectDate}
+                    {duration}
                 </p>
             </motion.div>
             <motion.div variants={yVariant} className="col-span-3 md:col-span-2">
@@ -67,9 +33,22 @@ export default function PortfolioCard({
                     <div  
                     className="flex items-end gap-2">
                         <h2 className="font-extrabold text-xl md:text-3xl text-white capitalize">{title}</h2>
-                        <ArrowUpRightIcon className="w-4 h-4 md:w-6 md:h-6 text-slate-400 aspect-square" />
+                        <ArrowUpRightIcon className="w-4 h-4 md:w-6 md:h-6 text-slate-200 aspect-square" />
                     </div>
-                    <p className="font-bold text-lg md:text-xl text-gray-500 capitalize">{role}</p>
+                    {
+                        <p className="font-bold text-lg md:text-xl text-gray-500 capitalize mb-2 last:mb-0">
+                            {category}
+                        </p>
+                    }
+                    {/* {
+                        role && role.length > 0 ? (
+                            <p className="font-bold text-lg md:text-xl text-gray-500 capitalize mb-2 last:mb-0">
+                            {role.join(', ')}
+                            </p>
+                        ) : (
+                            <p className="text-gray-500">No roles available.</p>
+                        )
+                    } */}
                     <p className="font-bold my-1 md:my-3 text-sm leading-6 md:text-lg md:leading-8 text-slate-400">
                         {description}
                     </p>
@@ -85,7 +64,7 @@ export default function PortfolioCard({
                 <h2 className="text-base md:text-xl font-bold md:my-4">Technology Used</h2>
                 <div className="flex flex-wrap my-2.5 gap-2.5">
                     {
-                        technologyUsed.map((item, index) => (
+                        techStack.map((item, index) => (
                             <TechnologyBadge key={index} name={item} className="bg-violet-800 text-violet-300"/>  
                         ))
                     }
@@ -94,7 +73,7 @@ export default function PortfolioCard({
                 <div className="my-4">
                     <h2 className="text-base md:text-xl font-bold md:my-2">Publication</h2>
                     {
-                        publicationLink?.map((item, index) => (
+                        link?.map((item, index) => (
                             <div key={index}>
                                 <Link
                                     href={item.link}
@@ -102,7 +81,7 @@ export default function PortfolioCard({
                                     target="_blank"
                                 >  
                                 {
-                                    item.description
+                                    item.name
                                 }    
                                 </Link>
                             </div>

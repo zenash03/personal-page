@@ -20,11 +20,16 @@ const experienceSchema = new mongoose.Schema({
         type: [String]
     },
     category: {
-        type: String
+        type: String,
+        required: true
+    },
+    shortDescription: {
+        type: String,
+        required: false
     }
 })
 
-const modelName = "experiences";
+const modelName = "Experience";
 const ExperienceModel = mongoose.models[modelName] || mongoose.model(modelName, experienceSchema);
 
 export default ExperienceModel;

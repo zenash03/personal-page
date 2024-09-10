@@ -1,5 +1,3 @@
-// import { Nunito as NunitoFont, Fira_Code as FiraCodeFont, Inter as SansFont } from "next/font/google";
-
 import { Nunito as NunitoFont, Fira_Code as FiraCodeFont, Inter as SansFont } from "next/font/google";
 
 export const fontNunito = NunitoFont({

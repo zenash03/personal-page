@@ -7,8 +7,8 @@ const { NextResponse } = require("next/server")
 export async function GET(request) {
     try {
         await connect();
-        // return new NextResponse("Berhasil");
-        const data = await EducationModel.find();
+
+        const data = await EducationModel.find().populate('relatedExperience');
         return NextResponse.json({data})
     }
     catch (error) {
