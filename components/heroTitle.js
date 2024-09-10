@@ -5,10 +5,12 @@ import React from 'react'
 import CustomTypingEffect from './custom/custom-typing-effect'
 import { FadeText } from './magicui/fade-text'
 import { cn } from '@/lib/utils'
+import Link from 'next/link'
+import { ScrollToSection } from './ScrollToSection'
 
 const HeroTitle = ({about, className}) => {
-    const objRole = about.roles;
-    const roles = objRole.map(item => item.role)
+    // const roles = about.roles;
+    // const roles = objRole.map(item => item.role)
   return (
     <div className={cn(`${fontFiraCode.variable} font-fira-code flex flex-col gap-1.5`, className)}>
       <FadeText className={`${subtitle({ className: "font-medium" })}`}
@@ -36,7 +38,7 @@ const HeroTitle = ({about, className}) => {
         text={
           <CustomTypingEffect 
             title="I'm"
-            text={roles}
+            text={about.roles}
             className=""
             duration={100}
             effectClassName="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-500 transition-all ease-in"
@@ -52,9 +54,10 @@ const HeroTitle = ({about, className}) => {
           show: { transition: { delay: 1.4 } },
         }}
         text={
-          <>
-            {about.description} <a className="text-violet-500 underline cursor-pointer hover:text-violet-400 transition-colors duration-200">Upstatement</a>.
-          </>
+          <div>
+            <p>{about.summary}.</p>
+             <ScrollToSection href="contact" className="text-violet-500 underline cursor-pointer hover:text-violet-400 transition-colors duration-200 my-2">Contact Me</ScrollToSection>
+          </div>
         }
       ></FadeText>
 

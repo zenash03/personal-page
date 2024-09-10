@@ -50,10 +50,10 @@ const page = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
-  const { experiences, educations, projects } = data
+  const { experiences, educations, projects, personalInfos } = data
 
   const { contents } = siteConfig; 
-  const about = contents.about;
+  // const about = contents.about;
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
       {/* <Hero about={about} className="min-h-dvh"/> */}
@@ -78,7 +78,7 @@ const page = () => {
             ))}
         </div> */}
       </div>
-      <HeroSection data={about} id="home" />
+      <HeroSection personalInfos={personalInfos} id="home" />
       <EducationSection educations={educations} id="education" />
       <PortfolioSection projects={projects} id="portfolio"/>
       <ContactSection id="contact"/>
