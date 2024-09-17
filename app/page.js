@@ -25,7 +25,8 @@ const Page = () => {
 
         // Check if any response failed
         if (responses.some(res => !res.ok)) {
-          throw new Error('Failed to fetch data');
+          const errorResponse = await Promise.any(responses.map(res => res.json()));
+          throw new Error(errorResponse.message || 'Failed to fetch data');
         }
 
         const [educations, experiences, personalInfos, projects, skills] = await Promise.all(
