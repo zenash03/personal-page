@@ -36,13 +36,13 @@ const educationSchema = new mongoose.Schema({
         type: [
             {
                 type: mongoose.Schema.Types.ObjectId, 
-                ref: 'Experience'
+                ref: 'experience'
             }
         ]
     }
 })
 
-const modelName = "Education";
+const modelName = "education";
 const EducationModel = mongoose.models[modelName] || mongoose.model(modelName, educationSchema);
 
 export default EducationModel;
