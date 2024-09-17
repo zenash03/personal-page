@@ -26,7 +26,7 @@ const personalInfoSchema = new mongoose.Schema({
     skillBadges: [badgeSchema]
 })
 
-const modelName = "personalInfo";
+const modelName = "personalInfos";
 const PersonalInfoModel = mongoose.models[modelName] || mongoose.model(modelName, personalInfoSchema);
 
 export default PersonalInfoModel;
