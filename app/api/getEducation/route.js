@@ -9,11 +9,13 @@ export async function GET(request) {
         await connect();
 
         const data = await EducationModel.find().populate('relatedExperience');
-        const response = new NextResponse(JSON.stringify({ data }), { status: 200 });
-        return response;
+        return NextResponse.json({data});
     }
     catch (error) {
-        const response = new NextResponse(JSON.stringify({ error: error.message }), { status: 500 });
-        return response;
+        return new NextResponse(JSON.stringify({
+            error: error.message,
+        }), {
+            status: 500
+        })
     }
 }
