@@ -29,6 +29,9 @@ const educationSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    logoLink: {
+        type: String,
+    },
     relatedExperience: {
         type: [
             {

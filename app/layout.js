@@ -1,14 +1,8 @@
 import { fontFiraCode, fontNunito, fontSans } from "@/config/fonts";
 import "./globals.css";
-import Navbar from '@/components/navbar';
-import { cn } from "@/lib/utils";
-import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern";
-import DotPattern from '@/components/magicui/dot-pattern';
-import { motion } from 'framer-motion';
 import Particles from '@/components/magicui/particles';
 import { CustomDock } from '@/components/custom/custom-dock';
 import { siteConfig } from '@/constants';
-import { OrbitBackground } from '@/components/orbitBackground';
 import BackgroundGradientAnimation from '@/components/custom/background-gradient-animation';
 import SmoothScrolling from "@/components/SmoothScrolling";
 
@@ -30,13 +24,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${fontNunito.variable} font-nunito`}>
+      <head>
+        <link 
+          rel="icon" 
+          href="/icon.ico" 
+          sizes="any" 
+        />
+      </head>
       <body className={`w-full h-dvh overflow-x-hidden overscroll-y-none`}>
         <SmoothScrolling>
           <main className="w-full min-h-screen relative z-0 bg-black text-white dark">
             <header className="dark w-full h-full fixed flex justify-center items-center top-0 left-0 z-20 pointer-events-none">
               <CustomDock className="" navItems={navItems} contact={about.contact} />
             </header>
-            <div className="absolute inset-0 z-0 w-full min-h-full bg-slate-50">
+            <div className="absolute inset-0 z-0 w-full min-h-full">
               <BackgroundGradientAnimation containerClassName="w-full min-h-full"
                 gradientBackgroundStart = "rgb(7, 8, 13)"    // Black
                 gradientBackgroundEnd = "rgb(14, 28, 77)"   // Deep dark blue
@@ -50,9 +51,9 @@ export default function RootLayout({ children }) {
                 blendingValue = "normal" 
                 > 
               </BackgroundGradientAnimation>
-              <div className="absolute z-0 inset-0 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,rgba(0,0,0,0.15)_45%,#17083B_100%)]"></div>
+              <div className="absolute z-0 inset-0 min-h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,rgba(0,0,0,0.15)_45%,#17083B_100%)]"></div>
               <Particles
-                  className="absolute inset-0 z-0"
+                  className="absolute inset-0 z-0 w-full min-h-full"
                   quantity={200}
                   ease={80}
                   staticity={30}
@@ -62,8 +63,8 @@ export default function RootLayout({ children }) {
                   maxSize={4}
               />
             </div>
-            <section className={`dark w-full h-full relative z-10`}>
-                  <div className="container flex flex-col items-center w-full h-full mx-auto my-auto relative">
+            <section className={`dark w-full h-full relative`}>
+                  <div className="flex flex-col items-center w-full h-full mx-auto my-auto relative">
                       {children}
                   </div>
           </section>

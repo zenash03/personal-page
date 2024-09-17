@@ -14,7 +14,8 @@ import { motion } from 'framer-motion';
 
 const colorClasses = {
     blue: 'bg-blue-700',
-    violet: 'bg-violet-700'
+    violet: 'bg-violet-700',
+    yellow: 'bg-yellow-700'
 } 
 
 function EducationTab({
@@ -27,9 +28,10 @@ function EducationTab({
   )
 }
 
-function EducationCard({data, cta, activeId}) {
+function EducationCard({data, cta, activeId, color}) {
+    const bgColor = `bg-${color}-700`
     return (
-        <div key={data._id} onClick={() => cta(data)} className={`hover:scale-100 transition-all duration-300 p-3 md:p-4 flex items-center gap-4 bg-stone-700 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100 rounded-lg origin-top-left ${(activeId == data._id) ? 'scale-100' : 'scale-95'} group pl-6 relative`}>
+        <div key={data._id} onClick={cta} className={`hover:scale-100 transition-all duration-300 p-3 md:p-4 flex items-center gap-4 bg-stone-700 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100 rounded-lg origin-top-left ${(activeId == data._id) ? 'scale-100' : 'scale-95'} group pl-6 relative`}>
             <div className={`${(activeId == data._id) ? 'opacity-100' : 'opacity-40'} group-hover:opacity-100 transition-all duration-300`}>
                 <Avatar>
                     <AvatarImage src={data.logoLink} alt="@shadcn" />
@@ -46,14 +48,15 @@ function EducationCard({data, cta, activeId}) {
                 <p className={`${(activeId == data._id) ? 'text-gray-400' : 'text-gray-600'} group-hover:text-gray-400 transition-all duration-400 font-bold text-sm md:text-lg`}>{data.institutionName}</p>
             </div>
             <div className="absolute w-1.5 h-full top-0 left-0 z-10 flex justify-center items-center">
-                <div className={cn(`w-full h-3/4 rounded-r-md z-10 ${(activeId == data._id) ? 'opacity-100' : 'opacity-0'} duration-400 transition-all group-hover:opacity-100`, `${colorClasses[data.colorTheme]}`)}></div>
+                <div className={cn(`w-full h-3/4 rounded-r-md z-10 ${(activeId == data._id) ? 'opacity-100' : 'opacity-0'} duration-400 transition-all group-hover:opacity-100`, bgColor)}></div>
             </div>
         </div>
     )
 }
 
-function EducationDetailCard({data}) {
+function EducationDetailCard({data, color}) {
     const [categories, setCategories] = useState([]);
+    const bgColor = `bg-${color}-700`
 
     useEffect(() => {
         if(data.relatedExperience && data.relatedExperience.length > 0){
@@ -112,7 +115,7 @@ function EducationDetailCard({data}) {
                 </CardContent>
             </Card>
             <div className="absolute w-2 h-full top-0 left-0 z-10 flex justify-center items-center">
-                <div className={`w-full h-2/3 rounded-r-md z-10 bg-${data.colorTheme}-700`}></div>
+                <div className={cn(`w-full h-2/3 rounded-r-md z-10`, bgColor)}></div>
             </div>
         </motion.div>
     )

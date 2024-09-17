@@ -6,16 +6,24 @@ const contactSchema = new mongoose.Schema({
     linkedIn: String,
     github: String
 })
+const badgeSchema = new mongoose.Schema({
+    src: String,
+    alt: String
+})
 
 const personalInfoSchema = new mongoose.Schema({
     name: String,
     title: String,
     summary: String,
-    contactInfo: contactSchema,
+    contactInfo: [contactSchema],
     location: {
         type: String,
     },
-    profileImage: String
+    profileImage: String,
+    roles: [String],
+    about: String,
+    image: String,
+    skillBadges: [badgeSchema]
 })
 
 const modelName = "personalInfo";

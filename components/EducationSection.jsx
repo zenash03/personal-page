@@ -11,19 +11,25 @@ export default function EducationSection({
 
     const [education, setEducation] = useState(null)
     const [activeEducation, setActiveEducation] = useState(null)
-  
+    const [activeColor, setActiveColor] = useState("white")
   
     useEffect(() => {
         const reversedData = [...educations.data].reverse()
         setEducation(reversedData)
         setActiveEducation(reversedData[0]);
-    }, [])
+        setActiveColor(colors[0]);
+    }, [educations])
   
-    const handleClickEducation = (education) => {
+    const handleClickEducation = (education, color) => {
       setActiveEducation(education)
+      setActiveColor(color);
     }
-    useEffect(() => {
-    }, [activeEducation]);
+    // useEffect(() => {
+    // }, [activeEducation]);
+
+    const colors = [
+        "violet", "blue"   
+    ]
 
     return (
     <Section sectionClassName="min-h-screen md:mt-16 py-8 md:py-16 w-full" title="My Education" id={id}>
@@ -34,6 +40,7 @@ export default function EducationSection({
                 {
                     education && 
                     education.map((item, index) => {
+                    const color = colors[index] || "white";
                     const delay = (index <= 0) ? 0.5 : (0.5 * index) + 0.5;
                         return (
                             <motion.div 
@@ -46,7 +53,7 @@ export default function EducationSection({
                                 }}
                             className="relative z-0"
                             >
-                            <EducationCard data={item} cta={handleClickEducation} activeId={activeEducation._id} />
+                            <EducationCard data={item} cta={() => handleClickEducation(item, color)} activeId={activeEducation._id} color={color} />
                             </motion.div>
                         )
                     })
@@ -64,7 +71,7 @@ export default function EducationSection({
                     }}
                 className="col-span-1"
                 >
-                <EducationDetailCard data={activeEducation}/>
+                <EducationDetailCard data={activeEducation} color={activeColor}/>
             </motion.div>
             )
         }

@@ -76,7 +76,7 @@ export default function PortfolioSection({
                         variants={itemVariantsX}
                         className="text-base md:text-lg font-bold text-gray-400"
                         >
-                            Incorporating smooth scrolling and parallax effects can significantly improve your site's aesthetic and interactivity.
+                            Explore my journey from UX design to development, featuring key projects that showcase my skills in creating intuitive user experiences and building functional applications.
                         </motion.p>
 
                         <div className="my-6 md:my-16 md:mb-40 flex flex-col gap-y-2 md:gap-y-4">
