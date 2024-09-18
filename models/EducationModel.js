@@ -36,7 +36,7 @@ const educationSchema = new mongoose.Schema({
         type: [
             {
                 type: mongoose.Schema.Types.ObjectId, 
-                ref: 'experiences'
+                ref: 'experience'
             }
         ]
     }
