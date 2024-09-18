@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { experienceSchema } from "./ExperienceModel";
 
 const educationSchema = new mongoose.Schema({
     degree: {
@@ -36,7 +37,7 @@ const educationSchema = new mongoose.Schema({
         type: [
             {
                 type: mongoose.Schema.Types.ObjectId, 
-                ref: 'experience'
+                ref: "experience"
             }
         ]
     }
