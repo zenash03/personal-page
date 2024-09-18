@@ -29,7 +29,7 @@ const experienceSchema = new mongoose.Schema({
     }
 })
 
-const modelName = "experiences";
+const modelName = "experience";
 const ExperienceModel = mongoose.models[modelName] || mongoose.model(modelName, experienceSchema);
 
 export default ExperienceModel;

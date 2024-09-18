@@ -20,7 +20,7 @@ const Page = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const endpoints = ['getEducation', 'getExperience', 'getPersonalInfo', 'getProject', 'getSkill'];
+        const endpoints = ['getExperience', 'getEducation', 'getPersonalInfo', 'getProject', 'getSkill'];
         const responses = await Promise.all(endpoints.map(endpoint => fetch(`${apiUrl}/${endpoint}`)));
 
         // Check if any response failed
