@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
           sizes="any" 
         />
       </head>
-      <body className={`w-full min-h-dvh overflow-x-hidden overscroll-y-none`}>
+      <body className={`w-full min-h-screen overflow-x-hidden overscroll-y-none`}>
         <SmoothScrolling type={isMobile()}>
           <main className="w-full h-full relative z-0 bg-black text-white dark scroll-smooth">
             <header className="dark w-full h-full fixed flex justify-center items-center top-0 left-0 z-20 pointer-events-none">
@@ -69,7 +69,7 @@ export default function RootLayout({ children }) {
                       maxSize={4}
                 />
               {/* <div className="fixed z-0 inset-0 h-screen w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,rgba(0,0,0,0.15)_30%,#17083B_100%)]"></div> */}
-              <div className="fixed z-0 w-full h-dvh bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-purple-800 from-5% via-blue-950 via-30% to-transparent to-80%"> </div>
+              <div className="fixed z-0 w-full min-h-screen bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-purple-800 from-5% via-blue-950 via-30% to-transparent to-80%"> </div>
             <section className={`dark w-full h-full relative`}>
                   <div className="flex flex-col items-center w-full h-full mx-auto my-auto relative">
                       {children}

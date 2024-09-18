@@ -29,11 +29,11 @@ const Page = () => {
           throw new Error(errorResponse.message || 'Failed to fetch data');
         }
 
-        const [educations, experiences, personalInfos, projects, skills] = await Promise.all(
+        const [experiences, educations, personalInfos, projects, skills] = await Promise.all(
           responses.map(res => res.json())
         );
 
-        setData({ educations, experiences, personalInfos, projects, skills });
+        setData({ experiences, educations, personalInfos, projects, skills });
       } catch (error) {
         setError(error.message);
       } finally {
