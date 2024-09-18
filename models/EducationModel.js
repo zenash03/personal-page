@@ -42,7 +42,7 @@ const educationSchema = new mongoose.Schema({
     }
 })
 
-const modelName = "educations";
+const modelName = "education";
 const EducationModel = mongoose.models[modelName] || mongoose.model(modelName, educationSchema);
 
 export default EducationModel;
