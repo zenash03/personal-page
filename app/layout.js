@@ -20,6 +20,12 @@ export const metadata = {
   title: "Wyrtzen Wensley",
   description: "Wyrtzen Wensley Portfolio Website",
 };
+export const isMobile = () => {
+  if (typeof window != "undefined") {
+    return window.innerWidth <= 768;
+  }
+  return false;
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -31,14 +37,14 @@ export default function RootLayout({ children }) {
           sizes="any" 
         />
       </head>
-      <body className={`w-full h-dvh overflow-x-hidden overscroll-y-none`}>
-        <SmoothScrolling>
-          <main className="w-full min-h-screen relative z-0 bg-black text-white dark">
+      <body className={`w-full min-h-dvh overflow-x-hidden overscroll-y-none`}>
+        <SmoothScrolling type={isMobile()}>
+          <main className="w-full h-full relative z-0 bg-black text-white dark scroll-smooth">
             <header className="dark w-full h-full fixed flex justify-center items-center top-0 left-0 z-20 pointer-events-none">
               <CustomDock className="" navItems={navItems} contact={about.contact} />
             </header>
             <div className="absolute inset-0 z-0 w-full min-h-full">
-              <BackgroundGradientAnimation containerClassName="w-full min-h-full"
+              {/* <BackgroundGradientAnimation containerClassName="w-full min-h-full"
                 gradientBackgroundStart = "rgb(7, 8, 13)"    // Black
                 gradientBackgroundEnd = "rgb(14, 28, 77)"   // Deep dark blue
                 firstColor = "48, 25, 82"                   // Purple shade
@@ -50,24 +56,25 @@ export default function RootLayout({ children }) {
                 size = "80%"
                 blendingValue = "normal" 
                 > 
-              </BackgroundGradientAnimation>
-              <div className="absolute z-0 inset-0 min-h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,rgba(0,0,0,0.15)_45%,#17083B_100%)]"></div>
-              <Particles
-                  className="absolute inset-0 z-0 w-full min-h-full"
-                  quantity={200}
-                  ease={80}
-                  staticity={30}
-                  backgroundColor="#6b21a8"
-                  color="#dcdcdc"
-                  minSize={1}
-                  maxSize={4}
-              />
-            </div>
+                </BackgroundGradientAnimation> */}
+                </div>
+                <Particles
+                      className="absolute inset-0 z-0 w-full h-full"
+                      quantity={200}
+                      ease={80}
+                      staticity={30}
+                      backgroundColor="#6b21a8"
+                      color="#dcdcdc"
+                      minSize={1}
+                      maxSize={4}
+                />
+              {/* <div className="fixed z-0 inset-0 h-screen w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,rgba(0,0,0,0.15)_30%,#17083B_100%)]"></div> */}
+              <div className="fixed z-0 w-full h-dvh bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-purple-800 from-5% via-blue-950 via-30% to-transparent to-80%"> </div>
             <section className={`dark w-full h-full relative`}>
                   <div className="flex flex-col items-center w-full h-full mx-auto my-auto relative">
                       {children}
                   </div>
-          </section>
+            </section>
           </main>
         </SmoothScrolling>
       </body>
