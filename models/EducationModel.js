@@ -32,7 +32,7 @@ const educationSchema = new mongoose.Schema({
     logoLink: {
         type: String,
     },
-    relatedExperience: {
+    relatedExperiences: {
         type: [
             {
                 type: mongoose.Schema.Types.ObjectId, 
@@ -40,9 +40,9 @@ const educationSchema = new mongoose.Schema({
             }
         ]
     }
-})
+});
 
-const modelName = "education";
+const modelName = "educations";
 const EducationModel = mongoose.models[modelName] || mongoose.model(modelName, educationSchema);
 
 export default EducationModel;

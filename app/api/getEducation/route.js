@@ -8,7 +8,7 @@ export async function GET(request) {
     try {
         await connect();
 
-        const data = await EducationModel.find().populate('relatedExperience');
+        const data = await EducationModel.find().populate('relatedExperiences');
         return NextResponse.json({data});
     }
     catch (error) {
