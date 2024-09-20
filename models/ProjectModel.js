@@ -16,7 +16,8 @@ const ProjectSchema = new mongoose.Schema({
         type: String,
         required: true,
         default: "Developer"
-    }
+    },
+    images: [String],
 })
 
 const modelName = "project";

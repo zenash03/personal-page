@@ -8,7 +8,7 @@ export async function GET(request) {
     try {
         await connect();
 
-        const data = await ProjectModel.find();
+        const data = await ProjectModel.find().sort({ startDate: -1 });
         return NextResponse.json({data});
     }
     catch (error) {
