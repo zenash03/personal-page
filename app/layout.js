@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
             <header className="dark w-full h-full fixed flex justify-center items-center top-0 left-0 z-20 pointer-events-none">
               <CustomDock className="" navItems={navItems} contact={about.contact} />
             </header>
-            <div className="absolute inset-0 z-0 w-full min-h-full">
+            <div className="fixed inset-0 z-0 w-full min-h-full">
               {/* <BackgroundGradientAnimation containerClassName="w-full min-h-full"
                 gradientBackgroundStart = "rgb(7, 8, 13)"    // Black
                 gradientBackgroundEnd = "rgb(14, 28, 77)"   // Deep dark blue
@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
                 </BackgroundGradientAnimation> */}
                 </div>
                 <Particles
-                      className="absolute inset-0 z-0 w-full h-full"
+                      className="fixed inset-0 z-0 w-full h-full"
                       quantity={200}
                       ease={80}
                       staticity={30}

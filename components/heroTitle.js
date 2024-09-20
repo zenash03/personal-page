@@ -56,11 +56,14 @@ const HeroTitle = ({about, className}) => {
         text={
           <div>
             <p>{about.summary}.</p>
-             <ScrollToSection href="contact" className="text-violet-500 underline cursor-pointer hover:text-violet-400 transition-colors duration-200 my-2">Contact Me</ScrollToSection>
+            <div className="flex gap-x-4">
+              <ScrollToSection href="contact" className="text-violet-500 underline cursor-pointer hover:text-violet-400 transition-colors duration-200 my-2">Contact Me</ScrollToSection>
+              <Link href={about.cvLink} target='_blank' className="text-violet-500 underline cursor-pointer hover:text-violet-400 transition-colors duration-200 my-2">Download CV</Link>
+              <Link href={about.portfolioLink} target='_blank' className="text-violet-500 underline cursor-pointer hover:text-violet-400 transition-colors duration-200 my-2">Download Portfolio</Link>
+            </div>
           </div>
         }
       ></FadeText>
-
       </div>
       </div>
   )

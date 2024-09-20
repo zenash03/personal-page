@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { siteConfig } from '@/constants';
+import { personalInfoBackup, siteConfig } from '@/constants';
 import PortfolioSection from '@/components/PortfolioSection';
 import EducationSection from '@/components/EducationSection';
 import HeroSection from '@/components/HeroSection';
@@ -43,9 +43,16 @@ const Page = () => {
 
     fetchData();
   }, [apiUrl]);
+  const backupData = personalInfoBackup; 
 
   if (loading) return <Loading />;
-  if (error) return <div>Error: {error}</div>;
+  if (error) return (
+    <div className="container w-full h-full flex flex-col justify-center items-center">
+      Error: {error}
+      <HeroSection personalInfos={personalInfoBackup} id="home" />
+      <ContactSection id="contact" />
+    </div>
+  );
 
   const { experiences, educations, projects, personalInfos } = data;
 
