@@ -59,11 +59,11 @@ function EducationDetailCard({data, color}) {
     const bgColor = `bg-${color}-700`
 
     useEffect(() => {
-        if(data.relatedExperience && data.relatedExperience.length > 0){
-            const uniqueCategories = [...new Set(data.relatedExperience.map(item => item.category))];
+        if(data.relatedExperiences && data.relatedExperiences.length > 0){
+            const uniqueCategories = [...new Set(data.relatedExperiences.map(item => item.category))];
             setCategories(uniqueCategories);
         }
-    }, [data.relatedExperience])
+    }, [data.relatedExperiences])
     
     const filterByCategory = (relatedExperience, category) => {
         return relatedExperience.filter(
@@ -96,7 +96,7 @@ function EducationDetailCard({data, color}) {
                                 <div className="my-4" key={category}>
                                     <p className="text-lg md:text-xl font-bold mb-1 capitalize">{category}</p> 
                                     {
-                                        filterByCategory(data.relatedExperience, category).map((experience) => (
+                                        filterByCategory(data.relatedExperiences, category).map((experience) => (
                                             <div key={experience} className="flex items-start gap-x-2.5 mb-2.5">
                                                 <div class="w-2 h-7 flex items-center">
                                                     <span className={`flex h-1.5 w-1.5 aspect-square rounded-full bg-blue-500`} />

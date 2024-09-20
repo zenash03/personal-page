@@ -52,7 +52,7 @@ export default function AboutMeSection({id, personalInfos}) {
     const data = personalInfos.data[0];
   return (
     <Section
-        sectionClassName="min-h-dvh w-full mb-10 md:mt-16 py-6 md:py-8 flex flex-col justify-start items-center" 
+        sectionClassName="min-h-screen w-full mb-10 md:mt-16 py-6 md:py-8 flex flex-col justify-start items-center" 
         title="About Me" 
         id={id} contentClassName="w-full flex flex-col"
     >

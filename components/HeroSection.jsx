@@ -11,7 +11,7 @@ export default function HeroSection({
 }) {
     const data = personalInfos.data[0];
   return (
-    <div className="min-h-dvh w-full flex items-center" id={id}>
+    <div className="min-h-screen w-full flex items-center" id={id}>
         <div className={cn(`w-full h-full flex flex-wrap justify-center items-center gap-x-12 md:gap-y-10`)}>
             <div>
                 <NeonGradientCard className="group w-fit items-center justify-center text-center p-0" borderRadius={1000} childClassName="p-0"> 

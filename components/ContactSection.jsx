@@ -69,7 +69,7 @@ export default function ContactSection({
     };
 
     return (
-        <Section sectionClassName="h-dvh w-full md:mt-10 py-6 md:py-8 flex flex-col justify-start items-center" title="Get in Touch" id={id} contentClassName="w-full flex flex-col">
+        <Section sectionClassName="min-h-screen w-full md:mt-10 py-6 md:py-8 flex flex-col justify-start items-center" title="Get in Touch" id={id} contentClassName="w-full flex flex-col">
             <div className="flex flex-col items-center">
                 <motion.p
                 initial={{ opacity: 0, y: 30 }}
