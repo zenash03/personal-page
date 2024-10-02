@@ -86,7 +86,7 @@ function EducationDetailCard({data, color}) {
                 <CardContent>
                     {
                         data.description && (
-                            <p className="text-base md:text-lg font-semibold text-gray-300">{data.description}</p>
+                            <p className="text-base md:text-lg font-semibold text-gray-300" dangerouslySetInnerHTML={{ __html: data.description }}></p>
                         )
                     }
 
