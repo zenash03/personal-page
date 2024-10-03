@@ -29,6 +29,7 @@ export const isMobile = () => {
 
 export default function RootLayout({ children }) {
   return (
+    
     <html lang="en" className={`${fontNunito.variable} font-nunito`}>
       <head>
         <link rel="icon" href="/icon.ico" sizes="any" />
