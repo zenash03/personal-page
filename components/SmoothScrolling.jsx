@@ -9,18 +9,17 @@ gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger
 function SmoothScrolling({ children }) {
   const lenisRef = useRef();
 
-  ScrollTrigger.normalizeScroll(true)
-  ScrollTrigger.config({ ignoreMobileResize: true})
-
+  
   // GSAP and Lenis integration for scrolling
   useEffect(() => {
     function update(time) {
-      if (lenisRef.current?.lenis) {
-        lenisRef.current.lenis.raf(time * 1000);
-      }
+      lenisRef.current?.lenis?.raf(time * 1000);
     }
-
+    
     gsap.ticker.add(update); // Add GSAP ticker to update Lenis scrolling
+    
+    ScrollTrigger.normalizeScroll(true)
+    ScrollTrigger.config({ ignoreMobileResize: true})
   }, []);
 
   return (
