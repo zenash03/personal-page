@@ -29,11 +29,10 @@ export const isMobile = () => {
 
 export default function RootLayout({ children }) {
   return (
-    
-    <html lang="en" className={`${fontNunito.variable} font-nunito`}>
+    <html lang="en" className={`${fontNunito.variable} font-nunito w-full h-full`}>
       <head>
         <link rel="icon" href="/icon.ico" sizes="any" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={`w-full bg-black overflow-x-hidden overscroll-y-none`} style={{ minHeight: '100vh' }}>
       <SmoothScrolling type={isMobile()}>
