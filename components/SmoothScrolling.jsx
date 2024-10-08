@@ -20,6 +20,22 @@ function SmoothScrolling({ children }) {
     
     ScrollTrigger.normalizeScroll(true)
     ScrollTrigger.config({ ignoreMobileResize: true})
+
+    // ScrollTrigger.create({
+    //   trigger: lenisRef.current,
+    //   start: "top top",
+    //   once: true
+    // })
+
+    // return () => {
+    //   ScrollTrigger.killAll();
+    // }
+
+    return () => {
+      // gsap.ticker.remove(update);
+      ScrollTrigger.clearScrollMemory();
+    }
+
   }, []);
 
   return (

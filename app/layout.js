@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
             <header className="dark w-full h-full fixed flex justify-center items-center top-0 left-0 z-20 pointer-events-none">
               <CustomDock className="" navItems={navItems} contact={about.contact} />
             </header>
-                <Particles
+                {/* <Particles
                       className="fixed inset-0 z-10 w-full h-full"
                       quantity={200}
                       ease={80}
@@ -49,7 +49,7 @@ export default function RootLayout({ children }) {
                       color="#dcdcdc"
                       minSize={1}
                       maxSize={4}
-                />
+                /> */}
               <div className="fixed z-0 w-full min-h-screen bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-purple-800 from-5% via-blue-950 via-30% to-transparent to-80%"> </div>
             <section className={`z-10 dark w-full h-full relative`}>
                   <div className="flex flex-col items-center w-full h-full mx-auto my-auto relative">
